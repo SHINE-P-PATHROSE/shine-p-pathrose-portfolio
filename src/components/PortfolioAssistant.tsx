@@ -72,6 +72,7 @@ export function PortfolioAssistant() {
       const response = await fetch('/api/assistant', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({ question: trimmed }),
       })
       const raw = await response.text()

@@ -70,6 +70,7 @@ export default async function handler(request: Request): Promise<Response> {
             'Content-Type': 'application/json',
             'x-goog-api-key': geminiKey,
           },
+          signal: AbortSignal.timeout(15000),
           body: JSON.stringify({
             contents: [{
               parts: [{
@@ -111,6 +112,7 @@ ${question}`,
         Authorization: `Bearer ${openAIKey}`,
         'Content-Type': 'application/json',
       },
+      signal: AbortSignal.timeout(15000),
       body: JSON.stringify({
         model: env.OPENAI_MODEL || 'gpt-5.4',
         store: false,
