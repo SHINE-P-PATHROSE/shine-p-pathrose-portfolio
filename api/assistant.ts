@@ -1,7 +1,7 @@
-import { about, hero, profile } from '../src/data/profile'
-import { experience } from '../src/data/experience'
-import { featuredProjects } from '../src/data/projects'
-import { skillCategories } from '../src/data/skills'
+import { about, hero, profile } from '../src/data/profile.js'
+import { experience } from '../src/data/experience.js'
+import { featuredProjects } from '../src/data/projects.js'
+import { skillCategories } from '../src/data/skills.js'
 
 const portfolioContext = JSON.stringify({
   profile: {
