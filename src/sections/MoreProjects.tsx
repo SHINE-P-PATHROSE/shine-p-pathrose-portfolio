@@ -32,6 +32,13 @@ export function MoreProjects() {
           </p>
         )}
 
+        {!loading && repos.length === 0 && (
+          <p className="mt-12 rounded-xl border border-border bg-surface/50 p-6 text-center text-muted light:border-gray-200 light:bg-white">
+            No public repositories are available right now. Please visit GitHub to explore the work.
+          </p>
+        )}
+
+        {repos.length > 0 && (
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {repos.map((repo, index) => (
             <ScrollReveal key={repo.name} delay={index * 0.05}>
@@ -65,13 +72,26 @@ export function MoreProjects() {
                     {repo.name}
                   </h3>
                   <div className="flex shrink-0 items-center gap-2 text-xs text-muted">
-                    {repo.stargazers_count > 0 && (
+                    {repo.statsAvailable && repo.stargazers_count > 0 && (
                       <span className="flex items-center gap-1">
                         <Star className="h-3 w-3" aria-hidden="true" />
                         {repo.stargazers_count}
                       </span>
                     )}
                   </div>
+                </div>
+
+                <div className="mt-3 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted light:text-gray-500">
+                  {repo.language && <span>{repo.language}</span>}
+                  {repo.statsAvailable && <span>{repo.forks_count} forks</span>}
+                  {repo.updated_at && (
+                    <time dateTime={repo.updated_at}>
+                      Updated {new Date(repo.updated_at).toLocaleDateString('en-IN', {
+                        month: 'short',
+                        year: 'numeric',
+                      })}
+                    </time>
+                  )}
                 </div>
 
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted light:text-gray-500">
@@ -106,6 +126,7 @@ export function MoreProjects() {
             </ScrollReveal>
           ))}
         </div>
+        )}
       </div>
     </section>
   )

@@ -82,6 +82,34 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
           ))}
         </ul>
 
+        {project.caseStudyDetails && (
+          <details className="mt-5 rounded-lg border border-accent/20 bg-accent/5 px-4 py-3 light:border-accent/20 light:bg-accent/5">
+            <summary className="cursor-pointer text-sm font-medium text-accent-light">
+              View case study details
+            </summary>
+            <dl className="mt-4 space-y-3 text-sm">
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-wider text-accent">Challenge</dt>
+                <dd className="mt-1 leading-relaxed text-muted light:text-gray-600">
+                  {project.caseStudyDetails.challenge}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-wider text-accent">Approach</dt>
+                <dd className="mt-1 leading-relaxed text-muted light:text-gray-600">
+                  {project.caseStudyDetails.approach}
+                </dd>
+              </div>
+              <div>
+                <dt className="font-mono text-[11px] uppercase tracking-wider text-accent">Outcome</dt>
+                <dd className="mt-1 leading-relaxed text-muted light:text-gray-600">
+                  {project.caseStudyDetails.outcome}
+                </dd>
+              </div>
+            </dl>
+          </details>
+        )}
+
         <div className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((t) => (
             <span

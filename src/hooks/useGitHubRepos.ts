@@ -14,6 +14,7 @@ export interface GitHubRepo {
   stack: string
   liveUrl?: string
   image?: string
+  statsAvailable?: boolean
 }
 
 export function useGitHubRepos() {
@@ -53,6 +54,7 @@ export function useGitHubRepos() {
               stack: meta?.stack || r.language || '—',
               liveUrl: r.homepage || meta?.liveUrl || undefined,
               image: meta?.image,
+              statsAvailable: true,
             }
           })
 
@@ -73,6 +75,7 @@ export function useGitHubRepos() {
               stack: staticRepoMeta[name]?.stack ?? '—',
               liveUrl: staticRepoMeta[name]?.liveUrl,
               image: staticRepoMeta[name]?.image,
+              statsAvailable: false,
             })),
           )
         }

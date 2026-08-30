@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shineppathrose.dev/sitemap.xml

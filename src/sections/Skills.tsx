@@ -11,7 +11,7 @@ import { cn } from '../lib/utils'
 const proficiencyStyles: Record<Proficiency, string> = {
   core: 'border-accent/40 bg-accent/10 text-accent-light',
   working: 'border-border bg-surface text-muted light:border-gray-200 light:bg-gray-50',
-  learning: 'border-violet-500/30 bg-violet-500/10 text-violet-300',
+  learning: 'border-violet-500/30 bg-violet-500/10 text-violet-300 light:text-violet-700',
 }
 
 export function Skills() {

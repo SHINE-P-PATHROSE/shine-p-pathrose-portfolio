@@ -1,4 +1,4 @@
-import { Download, Mail } from 'lucide-react'
+import { Download, ExternalLink, Mail } from 'lucide-react'
 import { profile } from '../data/profile'
 import { SectionHeading } from '../components/SectionHeading'
 import { ScrollReveal } from '../components/ScrollReveal'
@@ -63,11 +63,20 @@ export function Contact() {
                 ))}
               </div>
 
-              <div className="mt-8">
+              <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button href={profile.resumePath} download variant="primary" size="lg">
                   <Download className="h-4 w-4" aria-hidden="true" />
                   Download Resume
                 </Button>
+                <a
+                  href={profile.resumePath}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-accent-light hover:underline"
+                >
+                  <ExternalLink className="h-4 w-4" aria-hidden="true" />
+                  Preview resume
+                </a>
               </div>
             </div>
           </ScrollReveal>

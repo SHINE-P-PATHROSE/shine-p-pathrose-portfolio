@@ -10,6 +10,12 @@ export interface Project {
   featured: boolean
   highlights: string[]
   caseStudy?: boolean
+  filterTags: string[]
+  caseStudyDetails?: {
+    challenge: string
+    approach: string
+    outcome: string
+  }
 }
 
 export const featuredProjects: Project[] = [
@@ -23,6 +29,7 @@ export const featuredProjects: Project[] = [
     githubUrl: 'https://github.com/SHINE-P-PATHROSE/SnapBazaar-Django',
     image: '/projects/snapbazaar.svg',
     featured: true,
+    filterTags: ['Full Stack', 'E-Commerce'],
     highlights: [
       'Product listing with search and filtering',
       'Shopping cart and user authentication',
@@ -30,6 +37,11 @@ export const featuredProjects: Project[] = [
       'Backend APIs with responsive UI',
       'Image optimization for product displays',
     ],
+    caseStudyDetails: {
+      challenge: 'Create a complete shopping flow that feels simple for customers while keeping product and order data organized.',
+      approach: 'Built Django models and authentication around a responsive Bootstrap-style storefront with search, cart, profile and checkout workflows.',
+      outcome: 'Delivered a practical full-stack commerce foundation with reusable product, user and order workflows.',
+    },
   },
   {
     title: 'Employee Leave & Attendance Management',
@@ -41,6 +53,7 @@ export const featuredProjects: Project[] = [
     image: '/projects/leave-attendance.svg',
     featured: true,
     caseStudy: true,
+    filterTags: ['Full Stack', 'Business Apps'],
     highlights: [
       'Attendance management and leave request workflows',
       'LOP tracking with admin and employee dashboards',
@@ -48,6 +61,11 @@ export const featuredProjects: Project[] = [
       'CRUD REST APIs with responsive UI',
       'Real-time monitoring of attendance status',
     ],
+    caseStudyDetails: {
+      challenge: 'Replace manual attendance and leave tracking with a controlled workflow for employees and administrators.',
+      approach: 'Combined role-based Django workflows, REST endpoints and dashboard views for attendance, leave approval and loss-of-pay tracking.',
+      outcome: 'Created a single source of truth for daily attendance and leave decisions across employee and admin roles.',
+    },
   },
   {
     title: 'Project Management / Feedback Directory',
@@ -59,6 +77,7 @@ export const featuredProjects: Project[] = [
     image: '/projects/feedback-directory.svg',
     featured: true,
     caseStudy: true,
+    filterTags: ['Full Stack', 'Business Apps', 'Automation'],
     highlights: [
       'REST API backend with authentication and RBAC',
       'Dynamic project navigation and document management',
@@ -66,6 +85,11 @@ export const featuredProjects: Project[] = [
       'File view, download and delete capabilities',
       'Responsive frontend with SQLite data layer',
     ],
+    caseStudyDetails: {
+      challenge: 'Give engineering teams a reliable way to navigate projects, manage documents and track feedback in one place.',
+      approach: 'Designed a FastAPI service with SQLite persistence, authentication, RBAC and file-management endpoints backed by a responsive frontend.',
+      outcome: 'Turned scattered project observations and files into a searchable internal workflow with controlled access.',
+    },
   },
   {
     title: 'NexHire',
@@ -77,6 +101,7 @@ export const featuredProjects: Project[] = [
     githubUrl: 'https://github.com/SHINE-P-PATHROSE/NexHire',
     image: '/projects/nexhire.svg',
     featured: true,
+    filterTags: ['Full Stack', 'Business Apps'],
     highlights: [
       'Full-stack web application for job applications',
       'Python backend with HTML frontend',
@@ -94,6 +119,7 @@ export const featuredProjects: Project[] = [
     liveUrl: 'http://Shaaa.pythonanywhere.com',
     image: '/projects/buddy-punch.svg',
     featured: true,
+    filterTags: ['Full Stack', 'Business Apps'],
     highlights: [
       'Leave management workflow application',
       'Python backend with responsive frontend',
@@ -110,6 +136,7 @@ export const featuredProjects: Project[] = [
     githubUrl: 'https://github.com/SHINE-P-PATHROSE/mangalam-hope-pipes-assessment',
     image: '/projects/mangalam-real.png',
     featured: true,
+    filterTags: ['Frontend', 'Responsive UI'],
     highlights: [
       'Corporate website with product showcase',
       'FAQ, certifications and contact sections',
