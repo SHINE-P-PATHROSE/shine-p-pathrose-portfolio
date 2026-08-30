@@ -10,6 +10,7 @@ import { Architecture } from './sections/Architecture'
 import { EducationSection } from './sections/Education'
 import { GitHubActivity } from './sections/GitHubActivity'
 import { Contact } from './sections/Contact'
+import { PortfolioAssistant } from './components/PortfolioAssistant'
 import { useTheme } from './hooks/useTheme'
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Architecture />
         <EducationSection />
         <GitHubActivity />
+        <PortfolioAssistant />
         <Contact />
       </main>
       <Footer />
