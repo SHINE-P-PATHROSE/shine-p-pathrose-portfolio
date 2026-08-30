@@ -32,12 +32,23 @@ export function Navigation({ theme, onThemeChange }: NavigationProps) {
     }
   }, [open])
 
+  useEffect(() => {
+    if (!open) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setOpen(false)
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [open])
+
   const handleNavClick = () => setOpen(false)
 
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-all duration-300',
+        'fixed inset-x-0 top-0 z-50 bg-obsidian/80 backdrop-blur-md transition-all duration-300 light:bg-white/85',
         scrolled ? 'glass border-b border-white/5 py-3 light:border-gray-200/80' : 'py-5',
       )}
     >
@@ -100,6 +111,7 @@ export function Navigation({ theme, onThemeChange }: NavigationProps) {
           open ? 'visible opacity-100' : 'invisible opacity-0',
         )}
         aria-hidden={!open}
+        inert={!open}
       >
         <ul className="flex flex-col gap-1 px-6 py-6">
           {navLinks.map(({ label, href }) => {
@@ -109,6 +121,7 @@ export function Navigation({ theme, onThemeChange }: NavigationProps) {
                 <a
                   href={href}
                   onClick={handleNavClick}
+                  tabIndex={open ? 0 : -1}
                   className={cn(
                     'block rounded-lg px-4 py-3 text-lg font-medium transition-colors',
                     active === id ? 'text-accent-light' : 'text-muted',

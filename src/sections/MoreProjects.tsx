@@ -1,5 +1,6 @@
 import { Code2, ExternalLink, Star } from 'lucide-react'
-import { useGitHubRepos } from '../hooks/useGitHubRepos'
+import { useState } from 'react'
+import { useGitHubRepos, type GitHubRepo } from '../hooks/useGitHubRepos'
 import { SectionHeading } from '../components/SectionHeading'
 import { ScrollReveal } from '../components/ScrollReveal'
 import { GitHubIcon } from '../components/icons'
@@ -37,12 +38,7 @@ export function MoreProjects() {
               <article className="group flex h-full flex-col rounded-xl border border-border bg-surface p-5 transition-all hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 light:border-gray-200 light:bg-white">
                 {repo.image ? (
                   <div className="mb-4 aspect-video overflow-hidden rounded-lg bg-charcoal light:bg-gray-100">
-                    <img
-                      src={repo.image}
-                      alt={`${repo.name} project preview`}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    <RepositoryImage repo={repo} />
                   </div>
                 ) : (
                   <div
@@ -112,5 +108,29 @@ export function MoreProjects() {
         </div>
       </div>
     </section>
+  )
+}
+
+function RepositoryImage({ repo }: { repo: GitHubRepo }) {
+  const [failed, setFailed] = useState(false)
+
+  if (failed) {
+    return (
+      <div className="flex h-full items-center justify-center bg-gradient-to-br from-charcoal via-surface to-accent/20 p-4 text-center light:from-gray-100 light:via-white light:to-indigo-50">
+        <span className="font-mono text-xs text-muted light:text-gray-600">
+          {repo.name} preview unavailable
+        </span>
+      </div>
+    )
+  }
+
+  return (
+    <img
+      src={repo.image}
+      alt={`${repo.name} project preview`}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+    />
   )
 }

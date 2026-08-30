@@ -1,5 +1,6 @@
 import { ExternalLink } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 import type { Project } from '../data/projects'
 import { Button } from './Button'
 import { GitHubIcon } from './icons'
@@ -13,6 +14,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index, featured = false }: ProjectCardProps) {
   const reduced = useReducedMotion()
+  const [imageFailed, setImageFailed] = useState(false)
   const num = String(index + 1).padStart(2, '0')
 
   return (
@@ -26,17 +28,28 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
       transition={{ duration: 0.5, delay: reduced ? 0 : index * 0.08 }}
     >
       <div
-        className={`relative overflow-hidden bg-charcoal light:bg-gray-100 ${
+        className={`relative flex items-center justify-center overflow-hidden bg-charcoal light:bg-gray-100 ${
           featured ? 'aspect-video lg:aspect-auto lg:min-h-[320px]' : 'aspect-video'
         }`}
       >
-        <img
-          src={project.image}
-          alt={`${project.title} project preview`}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent light:from-gray-900/40" />
+        {imageFailed ? (
+          <div className="flex h-full items-center justify-center bg-gradient-to-br from-charcoal via-surface to-accent/20 p-6 text-center light:from-gray-100 light:via-white light:to-indigo-50">
+            <span className="font-mono text-sm text-muted light:text-gray-600">
+              {project.title} preview unavailable
+            </span>
+          </div>
+        ) : (
+          <img
+            src={project.image}
+            alt={`${project.title} project preview`}
+            loading="lazy"
+            onError={() => setImageFailed(true)}
+            className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${
+              featured ? 'object-cover lg:object-contain' : 'object-cover'
+            }`}
+          />
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian/65 via-transparent to-transparent light:from-gray-900/25" />
         <span className="absolute top-4 left-4 font-mono text-xs text-accent-light">
           PROJECT {num}
         </span>

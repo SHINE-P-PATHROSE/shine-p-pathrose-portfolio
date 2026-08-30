@@ -6,7 +6,7 @@ export const profile = {
   email: 'shineppathrose2002@gmail.com',
   github: 'https://github.com/SHINE-P-PATHROSE',
   linkedin: 'https://www.linkedin.com/in/shine-p-pathrose-babb30227',
-  resumePath: '/resume.pdf',
+  resumePath: '/shineppathrose_resume.pdf',
   currentRole: 'Associate Engineer at Baehal Software Limited',
   githubUsername: 'SHINE-P-PATHROSE',
 } as const

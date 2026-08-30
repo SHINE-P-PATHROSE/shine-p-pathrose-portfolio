@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react'
 import { CheckCircle, AlertCircle, Send } from 'lucide-react'
 import { cn } from '../lib/utils'
+import { profile } from '../data/profile'
 
 type FormStatus = 'idle' | 'success' | 'error'
 
@@ -61,7 +62,7 @@ export function ContactForm() {
     const body = encodeURIComponent(
       `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
     )
-    window.location.href = `mailto:shineppathrose2002@gmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
 
     setStatus('success')
     setForm({ name: '', email: '', message: '' })
