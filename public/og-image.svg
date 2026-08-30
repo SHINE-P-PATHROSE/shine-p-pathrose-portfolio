@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <rect width="1200" height="630" fill="#0a0a0f"/>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.4"/>
+  <defs>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 L 0 0 0 64" fill="none" stroke="#6366f1" stroke-width="0.5" opacity="0.15"/>
+    </pattern>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0.1"/>
+    </linearGradient>
+  </defs>
+  <circle cx="900" cy="200" r="200" fill="url(#glow)"/>
+  <text x="80" y="280" fill="white" font-family="system-ui,sans-serif" font-size="56" font-weight="700">Shine P Pathrose</text>
+  <text x="80" y="350" fill="#818cf8" font-family="system-ui,sans-serif" font-size="32">Python Full-Stack Developer</text>
+  <text x="80" y="420" fill="#8b8ba3" font-family="system-ui,sans-serif" font-size="24">Django · REST APIs · FastAPI · JavaScript</text>
+</svg>

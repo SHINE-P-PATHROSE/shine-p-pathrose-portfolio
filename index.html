@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (() => {
+        try {
+          const stored = localStorage.getItem('portfolio-theme')
+          const theme = stored === 'light' || stored === 'dark'
+            ? stored
+            : stored === 'system'
+              ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+              : 'dark'
+          document.documentElement.classList.add(theme)
+          document.documentElement.style.colorScheme = theme
+        } catch {
+          document.documentElement.classList.add('dark')
+        }
+      })()
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Shine P Pathrose | Python Full-Stack Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Shine P Pathrose, a Python Full-Stack Developer specializing in Django, REST APIs, FastAPI, JavaScript, and database-driven web applications."
+    />
+    <meta name="author" content="Shine P Pathrose" />
+    <link rel="canonical" href="https://shineppathrose.dev/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shine P Pathrose | Python Full-Stack Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio of Shine P Pathrose, a Python Full-Stack Developer specializing in Django, REST APIs, FastAPI, JavaScript, and database-driven web applications."
+    />
+    <meta property="og:url" content="https://shineppathrose.dev/" />
+    <meta property="og:image" content="/og-image.svg" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shine P Pathrose | Python Full-Stack Developer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio of Shine P Pathrose, a Python Full-Stack Developer specializing in Django, REST APIs, FastAPI, JavaScript, and database-driven web applications."
+    />
+    <meta name="twitter:image" content="/og-image.svg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shine P Pathrose",
+        "jobTitle": "Python Full-Stack Developer",
+        "url": "https://shineppathrose.dev/",
+        "email": "shineppathrose2002@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bengaluru",
+          "addressRegion": "Karnataka",
+          "addressCountry": "IN"
+        },
+        "sameAs": [
+          "https://github.com/SHINE-P-PATHROSE",
+          "https://www.linkedin.com/in/shine-p-pathrose-babb30227"
+        ],
+        "knowsAbout": [
+          "Python",
+          "Django",
+          "FastAPI",
+          "REST APIs",
+          "JavaScript",
+          "MySQL",
+          "SQLite"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
