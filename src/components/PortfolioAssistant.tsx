@@ -81,7 +81,10 @@ export function PortfolioAssistant() {
         try {
           data = JSON.parse(raw) as { answer?: string; error?: string }
         } catch {
-          throw new Error('The assistant returned an invalid response. Please try again after deployment.')
+          if (response.status === 404) {
+            throw new Error('The assistant API is not included in this deployment. Push the latest code and redeploy.')
+          }
+          throw new Error(`The assistant returned an invalid response (${response.status}). Please redeploy and try again.`)
         }
       }
 
