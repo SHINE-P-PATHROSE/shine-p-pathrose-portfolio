@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-border py-8 light:border-gray-200">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:flex-row sm:px-6">
         <p className="text-sm text-muted light:text-gray-500">
-          © {year} {profile.name}. Built with React &amp; TypeScript.
+          © {year} {profile.name}. All rights reserved.
         </p>
         <div className="flex items-center gap-6">
           <a
