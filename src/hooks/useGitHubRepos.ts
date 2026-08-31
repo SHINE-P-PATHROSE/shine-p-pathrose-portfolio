@@ -29,6 +29,7 @@ export function useGitHubRepos() {
       try {
         const res = await fetch(
           `https://api.github.com/users/${profile.githubUsername}/repos?per_page=100&sort=updated`,
+          { signal: AbortSignal.timeout(10000) },
         )
         if (!res.ok) throw new Error('Failed to fetch repositories')
 
@@ -105,6 +106,7 @@ export function useAllGitHubRepos() {
       try {
         const res = await fetch(
           `https://api.github.com/users/${profile.githubUsername}/repos?per_page=100&sort=updated`,
+          { signal: AbortSignal.timeout(10000) },
         )
         if (!res.ok) throw new Error('Failed to fetch repositories')
 
