@@ -161,7 +161,7 @@ export function ContactForm() {
       {status === 'success' && (
         <div className="flex items-center gap-2 rounded-lg border border-emerald-500/30 bg-emerald-500/10 px-4 py-3 text-sm text-emerald-400" role="status">
           <CheckCircle className="h-4 w-4 shrink-0" aria-hidden="true" />
-          Your email client should open with the message ready to send. If it does not, use the email link below.
+          Opening your email client — message ready to send.
         </div>
       )}
 
