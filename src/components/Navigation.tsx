@@ -107,7 +107,7 @@ export function Navigation({ theme, onThemeChange }: NavigationProps) {
       <div
         id="mobile-menu"
         className={cn(
-          'fixed inset-0 top-[60px] z-40 bg-obsidian/95 backdrop-blur-lg transition-all duration-300 lg:hidden light:bg-white/95',
+          'absolute inset-x-0 top-full z-40 max-h-[calc(100dvh-100%)] overflow-y-auto bg-obsidian/95 backdrop-blur-lg transition-all duration-300 lg:hidden light:bg-white/95',
           open ? 'visible opacity-100' : 'invisible opacity-0',
         )}
         aria-hidden={!open}
